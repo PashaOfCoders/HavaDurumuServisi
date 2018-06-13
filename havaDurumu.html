@@ -1,0 +1,148 @@
+<!-- Furkan PAŞAOĞLU -->
+<html> 
+
+<head>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+  <title>Hava Durumu</title>
+  <style>
+
+    ul, li {margin: 0; padding: 0; list-style-type: none}
+  ul#liste {padding: 20px;}
+  #sayfalama a { color: #fff; background: #333; text-decoration: none;padding: 3px 7px;margin-right: 6px;}
+ 
+  #sayfalama {padding: 0 20px 20px 20px;}
+  #sayfalama a.aktif {background: blue}
+  
+body{
+	background-image : url("https://lh3.googleusercontent.com/-b4VKyXcEclI/Vz1wa5sDRGI/AAAAAAAAEsc/tX-fMDnrB2g_OCRKF_yxmiZR05rs-Aejw/w2560-h1440/Blue%2B1.jpg");
+	 background-attachment: fixed;
+   -moz-background-size: 100% 100%;       
+   -o-background-size: 100% 100%;         
+   -webkit-background-size: 100% 100%;    
+   background-size: 100% 100%;}    
+	}
+h1{	
+	margin-top : 100px;
+}
+.sehir{
+	display: inline-block;
+}
+
+.bilgi table{
+	font-size: 20px;
+}
+p{
+	font-size:30px;
+}
+hr{
+	width:50%;
+}
+	
+</style>
+
+<script>
+ $(function(){
+
+    // toplam li sayısı
+    var toplamLi = $("ul#liste li").size();
+
+// sayfa veri sayısı
+var veriSayisi = 1;
+
+// Sayfalamayı uygula
+$("ul#liste li:gt(" + (veriSayisi - 1) + ")").hide();
+
+// sayfa sayısı bulalım
+var sayfaSayisi = (toplamLi / veriSayisi);
+
+// sayıyı yuvarlayalım
+// Sayfa linklerini ekleyelim
+for (var i = 1; i <= sayfaSayisi; i++)
+{
+  $("#sayfalama").append('<a href="javascript:void(0)">' + i + '</a>');
+}
+
+// İlk sayfaya aktif classı ekle
+$("#sayfalama a:first").addClass("aktif");
+
+// Sayfalama içindeki a'lardan birine tıklandığında
+$(document.body).on("click", "#sayfalama a", function(){
+    // indis değerini al (1 fazlası şeklinde)
+    var indis = $(this).index() + 1;
+    // toplam gözüken veri sayısını bul
+    var gt = veriSayisi * indis;
+    // aktif class işlemleri
+    $("#sayfalama a").removeClass("aktif");
+    $(this).addClass("aktif");
+    // listedeki tüm lileri gizle
+    $("ul#liste li").hide();
+    // for ile toplam gözüken veri sayısı - veriSayisi işlemi yap ve veriSayisi kadarını göster
+    for (i = gt - veriSayisi; i < gt; i++)
+    {
+      $("ul#liste li:eq(" + i + ")").show();
+    }
+  });
+
+});
+</script>
+
+</head>
+
+<body>
+	<center>
+	<br><br><br>
+	<h1>Hava Durumu Servisi</h1>
+	<hr width="50%">
+	<br>
+	
+	
+	<div class="sehir">
+	<input type="text" id="il" placeholder="Şehir giriniz..."/>
+	<button type="button" id="ekle" class="btn btn-info">Ekle</button>
+	<br>
+	</div>
+	
+	
+	
+	
+	<br><br>
+	<button id="rapor" class="btn btn-success" >Raporla</button>
+	<button id="belirli" class="btn">Belirli Zaman</button>
+	<br><br>
+	
+	<div class="bilgi">
+	<table id="myTable">
+		
+	<script>
+		var table = document.getElementById("myTable");
+		var row = table.insertRow(0);
+		var cell1 = row.insertCell(0);
+	</script>	
+	</table>
+	</div>
+	
+	
+	<ul id="liste">
+              <b><li id="belirli1"></li></b>
+              <b><li id="belirli2"></li></b>
+               <b><li id="belirli3"></li></b>
+                <b><li id="belirli4"></li></b>
+                 <b><li id="belirli5"></li></b>
+                  <b><li id="belirli6"></li></b>
+                   <b><li id="belirli7"></li></b>
+    </ul>
+	
+	<div id="sayfalama"></div>
+	
+	</center>
+	
+		
+	<script src="main.js"></script>
+</body>
+
+
+</html>

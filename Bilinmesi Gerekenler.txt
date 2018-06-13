@@ -1,0 +1,18 @@
+----------------Hava Durumu Servisi Uygulamasýna Hoþgeldiniz!!!---------------
+
+1-)Hava Durumu uygulamasý html formatýnda olduðundan tarayýcý üzerinde açýlmalý. 
+
+2-)Uygulama açýldýðýnda önünüze gelecek olan kutucaða þehir girin.
+
+3-)!!Her þehir giriþinde "EKLE" butonuna basmayý unutmayýnýz!!
+
+4-)"RAPORLA" ile günlük ortalama sýcaklýðýný
+
+5-)"BELÝRLÝ ZAMAN" ile 3 saat aralýklarla hava durumunu
+
+6-)Altta bulunan sayfalama iþlemleri ile de gününü ayarlayabilirsiniz
+
+7-)Ýnternet hýzýna göre sunucudan bilgi çekme süresi deðiþebilir,bilgiler gelene kadar bekleyiniz.
+
+
+--------------Keyifli Zamanlar------------------
